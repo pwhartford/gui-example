@@ -11,7 +11,7 @@ from gui.panels.main_window import Ui_MainWindow
 from gui.extra_widgets import MplWidget
 
 #Function Classes - we use this class for all of our functions
-from functions.pod_functions import ImageCutter, PODRunner
+from functions.pod_functions import ImageCutter
 
 #Imports for pyqt5 widgets 
 from PyQt5 import QtWidgets, QtCore, QtGui
@@ -181,16 +181,6 @@ class MainWindow(Ui_MainWindow):
             self.cuttingGroup.setEnabled(True)
             self.cuttingProgressBar.setEnabled(True)
             self.cuttingRunButton.setEnabled(True)
-
-            #POD Group
-            self.podFilterGroup.setEnabled(True)
-            self.podRunButton.setEnabled(True)
-            self.podProgressBar.setEnabled(True)
-            self.podSettingsBox.setEnabled(True)
-
-            #Set maximum number of pairs
-            self.podPairBox.setMaximum(len(self.imageList)//2)
-            self.podPairBox.setValue(len(self.imageList)//2)
 
             #Update with the initial image
             self.update_image(0)

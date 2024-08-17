@@ -1,3 +1,5 @@
+#GUI created by Peter Hartford - Thanks to Mehmet Arslan for his feedback
+
 from pathlib import Path
 import os, sys
    
@@ -14,19 +16,17 @@ import sys
 #Import our main window file
 from gui.main_window_gui import MainWindow
 
+ICON_PATH = Path(__file__).parent.absolute() / 'gui/icons/vki-blue.jpg'
+
 
 def main(): 
     #Create application object
     app = QtWidgets.QApplication(sys.argv)
-    
 
-    #Set application name and version 
-    app.setApplicationName('dopplerlidarcontrol')
-    app.setApplicationVersion('0.1')
+    app.setWindowIcon(QtGui.QIcon(str(ICON_PATH)))
 
-    
     #Create main window object
-    mainWindow = MainWindow()
+    mainWindow = MainWindow(app)
 
     #Show main window
     mainWindow.window.show()
